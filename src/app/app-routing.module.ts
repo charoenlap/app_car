@@ -51,6 +51,14 @@ const routes: Routes = [
     path: 'searchcar',
     loadChildren: () => import('./searchcar/searchcar.module').then( m => m.SearchcarPageModule)
   },
+  {
+    path: 'car-add',
+    loadChildren: () => import('./car-add/car-add.module').then( m => m.CarAddPageModule)
+  },
+  {
+    path: 'car-edit',
+    loadChildren: () => import('./car-edit/car-edit.module').then( m => m.CarEditPageModule)
+  },
 ];
 
 @NgModule({
