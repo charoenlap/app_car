@@ -59,6 +59,26 @@ const routes: Routes = [
     path: 'car-edit',
     loadChildren: () => import('./car-edit/car-edit.module').then( m => m.CarEditPageModule)
   },
+  {
+    path: 'car-detail',
+    loadChildren: () => import('./car-detail/car-detail.module').then( m => m.CarDetailPageModule)
+  },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./help/help.module').then( m => m.HelpPageModule)
+  },
+  {
+    path: 'profile-setting',
+    loadChildren: () => import('./profile-setting/profile-setting.module').then( m => m.ProfileSettingPageModule)
+  },
+  {
+    path: 'save',
+    loadChildren: () => import('./save/save.module').then( m => m.SavePageModule)
+  },
 ];
 
 @NgModule({
