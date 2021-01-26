@@ -79,6 +79,14 @@ const routes: Routes = [
     path: 'save',
     loadChildren: () => import('./save/save.module').then( m => m.SavePageModule)
   },
+  {
+    path: 'special-service',
+    loadChildren: () => import('./special-service/special-service.module').then( m => m.SpecialServicePageModule)
+  },
+  {
+    path: 'buy-service',
+    loadChildren: () => import('./buy-service/buy-service.module').then( m => m.BuyServicePageModule)
+  },
 ];
 
 @NgModule({
