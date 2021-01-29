@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class NewsPage implements OnInit {
 
   constructor() { }
+  	new = [
+		{img: 'assets/images/banner/banner.jpg'},
+		{img: 'assets/images/banner/banner.jpg'},
+		{img: 'assets/images/banner/banner.jpg'}
+	];
 
   ngOnInit() {
   }

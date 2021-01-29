@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class AnnouncePage implements OnInit {
 
   constructor() { }
-
+  car = [
+  	{img: 'assets/images/car/jazz.jpeg'},
+  	{img: 'assets/images/car/jazz.jpeg'},
+  	{img: 'assets/images/car/jazz.jpeg'}
+  ];
   ngOnInit() {
   }
 
