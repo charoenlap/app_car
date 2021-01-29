@@ -48,7 +48,9 @@
 			<ion-row>
 				<ion-col size="4" *ngFor="let brand of brands">
 					<div class="logo">
-						<img src="{{brand.img}}">
+						<a href="{{brand.link}}">
+							<img src="{{brand.img}}">
+						</a>
 					</div>
 				</ion-col>
 			</ion-row>
