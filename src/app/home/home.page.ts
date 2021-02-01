@@ -1,23 +1,19 @@
 import { Component } from '@angular/core';
-
+import { RestApiService } from '../rest-api.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-  
-	brands = [
-		{img: 'assets/images/logo/honda-logo-1700x1150.png',link: 'carall'},
-		{img: 'assets/images/logo/Mitsubishi-logo-2000x2500.png',link: 'carall'},
-		{img: 'assets/images/logo/Mercedes-Benz-logo-2011-1920x1080.png',link: 'carall'},
-		{img: 'assets/images/logo/lamborghini-logo-1000x1100.png',link: 'carall'},
-		{img: 'assets/images/logo/Suzuki-logo-5000x2500.png',link: 'carall'},
-		{img: 'assets/images/logo/Chevrolet-logo-2013-2560x1440.png',link: 'carall'},
-		{img: 'assets/images/logo/ford-logo-2017.png',link: 'carall'},
-		{img: 'assets/images/logo/Jeep-logo-green-3840x2160.png',link: 'carall'},
-		{img: 'assets/images/logo/Kia-logo-2560x1440.png',link: 'carall'}
-	];
+	banner:any;
+	brand:any;
+  	constructor(public api: RestApiService) {
+		this.api.getdata('information/getListBanner').subscribe(res=>{
+			this.banner = res;
+		},err=> {
+			console.log(err);
+		});
+		this.api.getdata('cars/getListCarByBand').subscribe(res=>{this.brand = res;},err=>{console.log(err);});
+	}
 }
