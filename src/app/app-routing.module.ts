@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'news-detail',
     loadChildren: () => import('./news-detail/news-detail.module').then( m => m.NewsDetailPageModule)
   },
+  { //{ path: 'job-detail/:id', loadChildren: './dashboard/job-detail/job-detail.module#JobDetailPageModule' },
+    path: 'news-detail/:id',
+    loadChildren: () => import('./news-detail/news-detail.module').then( m => m.NewsDetailPageModule)
+  },
   {
     path: 'chat-detail',
     loadChildren: () => import('./chat-detail/chat-detail.module').then( m => m.ChatDetailPageModule)

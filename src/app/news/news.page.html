@@ -5,15 +5,11 @@
 </ion-header>
 
 <ion-content color="light">
-	<div class="card mb-1" *ngFor="let news of new">
-		<img src="{{news.img}}">
+	<div class="card mb-1" *ngFor="let new of news" routerLink="/news-detail/{{new.id}}">
+		<img src="{{new.image}}">
 		<div class="card-body">
-			<small><ion-icon name="time-outline"></ion-icon> 01-01-2021</small>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor....</p>
-			<a href="news-detail">อ่านเพิ่มเติม</a>
+			<small><ion-icon name="time-outline"></ion-icon> {{ new.date }}</small>
+			<div>{{ new.detail }}</div>
 		</div>
 	</div>
 </ion-content>
