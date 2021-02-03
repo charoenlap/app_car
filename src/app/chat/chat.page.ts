@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RestApiService } from '../rest-api.service';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatPage implements OnInit {
 
-  constructor() { }
+  listcontact:any;
+  constructor(public api: RestApiService) {
+    this.api.getdata('information/contact').subscribe(res => {
+      this.listcontact = res;
+    }, err => {
+      console.log(err);
+    });
+  }
 
   ngOnInit() {
   }

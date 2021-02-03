@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../rest-api.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-carall',
@@ -7,17 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarallPage implements OnInit {
 
-  constructor() { }
-
-  cars = [
-  	{car: 'Jazz 01'},
-  	{car: 'Jazz 02'},
-  	{car: 'Jazz 03'},
-  	{car: 'Jazz 04'},
-  	{car: 'Jazz 05'},
-  	{car: 'Jazz 06'},
-  ]
-
+  listcar:any;
+  token:any;
+  constructor(private storage: Storage,public api: RestApiService) {
+    this.storage.get('token').then((data)=>{
+      this.token = data;
+    });
+    this.api.getdata('cars/getListCarall&token='+this.token).subscribe(
+      res=>{
+        this.listcar = res;
+      },err=>{
+        console.log(err);
+      }
+    );
+  }
   ngOnInit() {
   }
 
