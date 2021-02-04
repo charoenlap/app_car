@@ -19,8 +19,8 @@
 				<ion-badge color="primary">รถมือสอง</ion-badge> <br>
 				<small>{{listcars.price}}</small> <br>
 				<small>{{listcars.detail}}</small> <br>
-				<ion-button color="warning" size="small"><ion-icon name="call-outline"></ion-icon></ion-button>
-				<ion-button color="line" size="small"><img src="assets/images/line.png" width="25"></ion-button>
+				<ion-button color="warning" size="small" href="tel:{{listcars.tel}}"><ion-icon name="call-outline"></ion-icon></ion-button>
+				<ion-button color="line" size="small" href="{{listcars.line}}"><img src="assets/images/line.png" width="25"></ion-button>
 				<ion-button color="tertiary" size="small"><ion-icon name="heart-outline"></ion-icon></ion-button>
 			</ion-col>
 		</ion-row>

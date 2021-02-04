@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../rest-api.service';
 
 @Component({
   selector: 'app-special-service',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./special-service.page.scss'],
 })
 export class SpecialServicePage implements OnInit {
-
-  constructor() { }
+  listService:any;
+  constructor(public api: RestApiService) {
+    this.api.getdata('profile/listCoinHistory').subscribe(
+      res=>{this.listService = res;},
+      err=>{console.log(err);}
+    );
+  }
 
   ngOnInit() {
   }

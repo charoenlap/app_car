@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../rest-api.service';
 
 @Component({
   selector: 'app-buy-service',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buy-service.page.scss'],
 })
 export class BuyServicePage implements OnInit {
-
-  constructor() { }
+  listcoin:any;
+  constructor(public api: RestApiService) {
+    this.api.getdata('buyService/listCoin').subscribe(
+      res=>{this.listcoin = res;},
+      err=>{console.log(err);}
+    );
+  }
 
   ngOnInit() {
   }

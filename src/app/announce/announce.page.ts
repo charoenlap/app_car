@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../rest-api.service';
 
 @Component({
   selector: 'app-announce',
@@ -6,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./announce.page.scss'],
 })
 export class AnnouncePage implements OnInit {
-
-  constructor() { }
-  car = [
-  	{img: 'assets/images/car/jazz.jpeg'},
-  	{img: 'assets/images/car/jazz.jpeg'},
-  	{img: 'assets/images/car/jazz.jpeg'}
-  ];
+  listcar:any;
+  constructor(public api: RestApiService) {
+    this.api.getdata('announce/getListCars').subscribe(
+      res=>{
+        this.listcar = res;
+      },err=>{
+        console.log(err);
+      }
+    );
+  }
   ngOnInit() {
   }
 

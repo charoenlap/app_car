@@ -21,12 +21,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>01/01/2563</td>
-								<td>20 Unit</td>
+							<tr *ngFor="let lists of listService">
+								<td>{{lists.date}}</td>
+								<td>{{lists.text}} Unit</td>
 								<td>
 									<ion-text color="success">
-										สำเร็จ
+										{{lists.status}}
 									</ion-text>
 								</td>
 							</tr>

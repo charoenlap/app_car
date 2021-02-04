@@ -14,6 +14,6 @@ export class HomePage {
 		},err=> {
 			console.log(err);
 		});
-		this.api.getdata('cars/getListCarByBand').subscribe(res=>{this.brand = res;},err=>{console.log(err);});
+		this.api.getdata('brand/listBrand').subscribe(res=>{this.brand = res;},err=>{console.log(err);});
 	}
 }
