@@ -64,6 +64,10 @@ const routes: Routes = [
     loadChildren: () => import('./car-edit/car-edit.module').then( m => m.CarEditPageModule)
   },
   {
+    path: 'car-detail',
+    loadChildren: () => import('./car-detail/car-detail.module').then( m => m.CarDetailPageModule)
+  },
+  {
     path: 'car-detail/:id',
     loadChildren: () => import('./car-detail/car-detail.module').then( m => m.CarDetailPageModule)
   },

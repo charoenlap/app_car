@@ -15,6 +15,8 @@ export class CarAddPage implements OnInit {
   listcc:any;
   listmodel:any;
   listgear:any;
+  caradd:any;
+  status_detail:any;
   constructor(public api:RestApiService) {
     this.api.getdata('cars/getListType').subscribe(res=>{this.listtype = res;});
     this.api.getdata('cars/getListBand').subscribe(res=>{this.listbrand = res;});
@@ -27,6 +29,18 @@ export class CarAddPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+  async cardata(type_id:any,brand_id:any,generation_id:any,face_id:any,model_id:any,year_id:any,cc_id:any,gear_id:any,mile:any,color:any,price:any,license:any,detail:any,image:any){
+    this.api.getdata('cars/addCar&type_id='+type_id+'&brand_id='+brand_id+'&generation_id='+generation_id+'&face_id='+face_id+'&model_id='+model_id+'&year_id='+year_id+'&cc_id='+cc_id+'&gear_id='+gear_id+'&mile='+mile+'&color='+color+'&price='+price+'&license='+license+'&detail='+detail+'&image='+image).subscribe(
+      res=>{
+        this.caradd = res;
+        if(this.caradd.result == 'success'){
+          this.status_detail = this.caradd.result;
+        }
+      },err=>{
+        console.log(err);
+      }
+    );
   }
 
 }

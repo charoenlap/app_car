@@ -23,17 +23,6 @@
 					<ion-select value="0" class="border-input">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listtype.id}}" *ngFor="let listtype of listtype">{{listtype.text}}</ion-select-option>
-						<!-- <ion-select-option value="01">รถเก๋ง 4 ประตู</ion-select-option>
-						<ion-select-option value="02">รถกระบะ</ion-select-option>
-						<ion-select-option value="03">รถเก๋ง 5 ประตู</ion-select-option>
-						<ion-select-option value="04">SUV</ion-select-option>
-						<ion-select-option value="05">Wagon</ion-select-option>
-						<ion-select-option value="06">Van</ion-select-option>
-						<ion-select-option value="07">รถเก๋ง 2 ประตู</ion-select-option>
-						<ion-select-option value="08">รถเปิดประทุน</ion-select-option>
-						<ion-select-option value="09">รถตู้/MPV</ion-select-option>
-						<ion-select-option value="10">Cabriolet</ion-select-option>
-						<ion-select-option value="11">Truck</ion-select-option> -->
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
@@ -41,72 +30,6 @@
 					<ion-select value="0" class="border-input">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listbrand.id}}" *ngFor="let listbrand of listbrand">{{listbrand.text}}</ion-select-option>
-						<!-- <ion-select-option value="10">FORD</ion-select-option>
-						<ion-select-option value="29">HONDA</ion-select-option>
-						<ion-select-option value="1">ALFA ROMEO</ion-select-option>
-						<ion-select-option value="2">ASTON MARTIN</ion-select-option>
-						<ion-select-option value="3">AUDI</ion-select-option>
-						<ion-select-option value="4">BENTLEY</ion-select-option>
-						<ion-select-option value="5">BENZ</ion-select-option>
-						<ion-select-option value="6">BMW</ion-select-option>
-						<ion-select-option value="38">BUICK</ion-select-option>
-						<ion-select-option value="39">CADILLAC</ion-select-option>
-						<ion-select-option value="59">CHERY</ion-select-option>
-						<ion-select-option value="40">CHEVROLET</ion-select-option>
-						<ion-select-option value="51">CHRYSLER</ion-select-option>
-						<ion-select-option value="7">CITROEN</ion-select-option>
-						<ion-select-option value="41">DAEWOO</ion-select-option>
-						<ion-select-option value="28">DAIHATSU</ion-select-option>
-						<ion-select-option value="60">DFM</ion-select-option>
-						<ion-select-option value="42">DODGE</ion-select-option>
-						<ion-select-option value="8">FERRARI</ion-select-option>
-						<ion-select-option value="9">FIAT</ion-select-option>
-						<ion-select-option value="58">HINO</ion-select-option>
-						<ion-select-option value="43">HOLDEN</ion-select-option>
-						<ion-select-option value="57">HUMMER</ion-select-option>
-						<ion-select-option value="44">HYUNDAI</ion-select-option>
-						<ion-select-option value="66">INFINITI</ion-select-option>
-						<ion-select-option value="30">ISUZU</ion-select-option>
-						<ion-select-option value="11">JAGUAR</ion-select-option>
-						<ion-select-option value="45">JEEP</ion-select-option>
-						<ion-select-option value="46">KIA</ion-select-option>
-						<ion-select-option value="12">LAMBORGHINI</ion-select-option>
-						<ion-select-option value="13">LANCIA</ion-select-option>
-						<ion-select-option value="14">LANDROVER</ion-select-option>
-						<ion-select-option value="31">LEXUS</ion-select-option>
-						<ion-select-option value="47">LINCOLN</ion-select-option>
-						<ion-select-option value="15">LOTUS</ion-select-option>
-						<ion-select-option value="16">MASERATI</ion-select-option>
-						<ion-select-option value="32">MAZDA</ion-select-option>
-						<ion-select-option value="48">MERCURY</ion-select-option>
-						<ion-select-option value="65">MG</ion-select-option>
-						<ion-select-option value="62">MINI</ion-select-option>
-						<ion-select-option value="33">MITSUBISHI</ion-select-option>
-						<ion-select-option value="49">MUSSO</ion-select-option>
-						<ion-select-option value="56">NAZA</ion-select-option>
-						<ion-select-option value="34">NISSAN</ion-select-option>
-						<ion-select-option value="54">OLDSMOBILE</ion-select-option>
-						<ion-select-option value="17">OPEL</ion-select-option>
-						<ion-select-option value="18">PEUGEOT</ion-select-option>
-						<ion-select-option value="53">PONTIAC</ion-select-option>
-						<ion-select-option value="19">PORSCHE</ion-select-option>
-						<ion-select-option value="52">PROTON</ion-select-option>
-						<ion-select-option value="20">RENAULT</ion-select-option>
-						<ion-select-option value="21">ROLLS-ROYCE</ion-select-option>
-						<ion-select-option value="22">ROVER</ion-select-option>
-						<ion-select-option value="23">SAAB</ion-select-option>
-						<ion-select-option value="24">SEAT</ion-select-option>
-						<ion-select-option value="25">SKODA</ion-select-option>
-						<ion-select-option value="67">SMART</ion-select-option>
-						<ion-select-option value="63">SSANGYONG</ion-select-option>
-						<ion-select-option value="35">SUBARU</ion-select-option>
-						<ion-select-option value="36">SUZUKI</ion-select-option>
-						<ion-select-option value="55">TATA</ion-select-option>
-						<ion-select-option value="50">THAI RUNG</ion-select-option>
-						<ion-select-option value="37">TOYOTA</ion-select-option>
-						<ion-select-option value="26">VOLKSWAKEN</ion-select-option>
-						<ion-select-option value="27">VOLVO</ion-select-option>
-						<ion-select-option value="64">WULING</ion-select-option> -->
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">

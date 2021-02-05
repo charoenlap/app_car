@@ -5,21 +5,30 @@
 </ion-header>
 
 <ion-content color="light">
+	<form #form="ngForm" (ngSubmit)="buycoin()" >
 	<div class="card">
 		<ion-list>
 		  <ion-radio-group value="1">
 		    <ion-item *ngFor="let listscoin of listcoin">
 		      <ion-label>{{listscoin.text}}</ion-label>
-		      <ion-radio slot="start" value="{{listscoin.id}}"></ion-radio>
+		      <ion-radio slot="start" value="{{listscoin.id}}" id="idcoin"></ion-radio>
 		    </ion-item>
 		  </ion-radio-group>
 		</ion-list>
 		<ion-grid>
 			<ion-row>
 				<ion-col size="12">
-					<ion-button color="theme">ซื้อ</ion-button>
+					<ion-text color="success">
+						{{status_detail}}
+					</ion-text>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col size="12">
+					<ion-button color="theme" type="submit">ซื้อ</ion-button>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
 	</div>
+	</form>
 </ion-content>
