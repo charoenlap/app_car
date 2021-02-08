@@ -19,5 +19,4 @@ export class AnnouncePage implements OnInit {
   }
   ngOnInit() {
   }
-
 }

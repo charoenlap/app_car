@@ -8,19 +8,25 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./profile-setting.page.scss'],
 })
 export class ProfileSettingPage implements OnInit {
-  dataedit:any;
   
+  dataedit:any;
+  token:any;
+  status_detail:any;
   constructor(public api:RestApiService,private storage: Storage,) {
-    
+    this.storage.get('token').then((data) => {
+      this.token = data;
+    });
   }
 
   ngOnInit() {
   }
-  async profileedit(image:any,type:any,name:any,lname:any,no_card:any,email:any,phone:any,tel:any,line:any){
-    this.api.getdata('profile/editProfile&image='+image+'&type='+type+'&name='+name+'&lname='+lname+'&no_card='+no_card+'&email='+email+'&phone='+phone+'&tel='+tel+'&line='+line).subscribe(
+  async profileedit(token:any,image:any,type:any,name:any,lname:any,no_card:any,email:any,phone:any,tel:any,line:any){
+    this.api.getdata('profile/editProfile&token='+token+'&image='+image+'&type='+type+'&name='+name+'&lname='+lname+'&no_card='+no_card+'&email='+email+'&phone='+phone+'&tel='+tel+'&line='+line).subscribe(
       res=>{
         this.dataedit = res;
-        console.log(this.dataedit);
+        if(this.dataedit.result == "success"){
+          this.status_detail = this.dataedit.desc;
+        }
       },err=>{
         console.log(err);
       }

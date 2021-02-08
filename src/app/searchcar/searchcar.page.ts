@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../rest-api.service';
 
 @Component({
   selector: 'app-searchcar',
@@ -6,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searchcar.page.scss'],
 })
 export class SearchcarPage implements OnInit {
-
-  constructor() { }
+  listbrands:any;
+  constructor(public api:RestApiService) {
+    this.api.getdata('brand/listBrand').subscribe(
+      res=>{
+        this.listbrands = res;
+      },err=>{
+        console.log(err);
+      }
+    );
+  }
 
   ngOnInit() {
   }

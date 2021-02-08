@@ -12,96 +12,101 @@
 					<ion-text color="theme">
 						<h6><strong>ข้อมูลรถยนต์</strong></h6>
 					</ion-text>
+					<ion-text color="success">
+						<h3>{{status_detail}}</h3>
+					</ion-text>
 				</ion-col>
 				<ion-col size="4">
-					<ion-button color="secondary" expand="full">โปรโมท</ion-button>
+					<ion-button color="secondary" expand="full" routerLink="/promote/{{car_id}}">โปรโมท</ion-button>
 				</ion-col>
 			</ion-row>
+			<form #form="ngForm" (ngSubmit)="cardata()" >
 			<ion-row>
 				<ion-col size="12">
 					<label>ประเภทรถยนต์</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="type_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listtype.id}}" *ngFor="let listtype of listtype">{{listtype.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>ยี่ห้อรถยนต์</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="brand_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listbrand.id}}" *ngFor="let listbrand of listbrand">{{listbrand.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>รุ่นรถยนต์</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="generation_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listgen.id}}" *ngFor="let listgen of listgen">{{listgen.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>โฉมรถยนต์</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="face_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listface.id}}" *ngFor="let listface of listface">{{listface.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>รายละเอียดรุ่น</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="model_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listmodel.id}}" *ngFor="let listmodel of listmodel">{{listmodel.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>ปี</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="year_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listyear.id}}" *ngFor="let listyear of listyear">{{listyear.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>ขนาดเครื่องยนต์</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="cc_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listcc.id}}" *ngFor="let listcc of listcc">{{listcc.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>ระบบเกียร์</label>
-					<ion-select value="0" class="border-input">
+					<ion-select value="0" class="border-input" id="gear_id">
 						<ion-select-option value="0">--- เลือก ---</ion-select-option>
 						<ion-select-option value="{{listgear.id}}" *ngFor="let listgear of listgear">{{listgear.text}}</ion-select-option>
 					</ion-select>
 				</ion-col>
 				<ion-col size="12">
 					<label>เลขไมล์ </label>
-					<ion-input class="border-input"></ion-input>
+					<ion-input class="border-input" id="mile"></ion-input>
 				</ion-col>
 				<ion-col size="12">
 					<label>สี </label>
-					<ion-input class="border-input"></ion-input>
+					<ion-input class="border-input" id="color"></ion-input>
 				</ion-col>
 				<ion-col size="12">
 					<label>ราคา </label>
-					<ion-input class="border-input"></ion-input>
+					<ion-input class="border-input" id="price"></ion-input>
 				</ion-col>
 				<ion-col size="12">
 					<label>ทะเบียนรถ </label>
-					<ion-input class="border-input"></ion-input>
+					<ion-input class="border-input" id="license"></ion-input>
 				</ion-col>
 				<ion-col size="12">
 					<label>รายละเอียดเพิ่มเติม</label>
-					<ion-textarea rows="6" cols="20" class="border-input"></ion-textarea>
+					<ion-textarea rows="6" cols="20" class="border-input" id="detail"></ion-textarea>
 				</ion-col>
 				<ion-col size="12">
 					<label>รูปภาพรถ </label>
-					<ion-input type="file"></ion-input>
+					<ion-input type="file" id="image"></ion-input>
 				</ion-col>
 				<ion-col size="12">
-					<ion-button color="theme">บันทึกข้อมูล</ion-button>
+					<ion-button color="theme" type="submit">บันทึกข้อมูล</ion-button>
 				</ion-col>
 			</ion-row>
+			</form>
 		</ion-grid>
 	</div>
 </ion-content>

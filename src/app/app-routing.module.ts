@@ -60,7 +60,7 @@ const routes: Routes = [
     loadChildren: () => import('./car-add/car-add.module').then( m => m.CarAddPageModule)
   },
   {
-    path: 'car-edit',
+    path: 'car-edit/:id',
     loadChildren: () => import('./car-edit/car-edit.module').then( m => m.CarEditPageModule)
   },
   {
@@ -94,6 +94,10 @@ const routes: Routes = [
   {
     path: 'buy-service',
     loadChildren: () => import('./buy-service/buy-service.module').then( m => m.BuyServicePageModule)
+  },
+  {
+    path: 'promote/:id',
+    loadChildren: () => import('./promote/promote.module').then( m => m.PromotePageModule)
   },
 ];
 
