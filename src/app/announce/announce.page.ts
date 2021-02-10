@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-announce',
@@ -8,7 +9,12 @@ import { RestApiService } from '../rest-api.service';
 })
 export class AnnouncePage implements OnInit {
   listcar:any;
-  constructor(public api: RestApiService) {
+  token:any;
+  constructor(public api: RestApiService,private storage: Storage) {
+    this.storage.get('token').then((data)=>{
+      this.token = data;
+    });
+
     this.api.getdata('announce/getListCars').subscribe(
       res=>{
         this.listcar = res;

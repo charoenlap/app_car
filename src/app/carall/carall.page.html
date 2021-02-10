@@ -9,19 +9,26 @@
 
 	<div class="card mb-1" *ngFor="let listcars of listcar">
 		<ion-row>
+			<ion-col size="12">
+				<ion-text color="theme">
+					<h6 class="name-car">{{listcars.name}}</h6>
+				</ion-text>
+			</ion-col>
+		</ion-row>
+		<ion-row>
 			<ion-col size="5">
 				<div routerLink="/car-detail/{{listcars.id}}">
 					<img src="{{listcars.image}}">	
-					<strong>{{listcars.name}}</strong>
+					<!-- <h6 class="name-car">{{listcars.name}}</h6> -->
 				</div>
 			</ion-col>
 			<ion-col size="7">
 				<ion-badge color="primary">{{listcars.type}}</ion-badge> <br>
-				<small>{{listcars.price}}</small> <br>
+				<h6 class="name-car">{{listcars.price}}</h6> <br>
 				<small>{{listcars.detail}}</small> <br>
 				<ion-button color="warning" size="small" href="tel:{{listcars.tel}}"><ion-icon name="call-outline"></ion-icon></ion-button>
 				<ion-button color="line" size="small" href="{{listcars.line}}"><img src="assets/images/line.png" width="25"></ion-button>
-				<ion-button color="tertiary" size="small"><ion-icon name="heart-outline"></ion-icon></ion-button>
+				<ion-button color="tertiary" size="small" routerLink="/favorites/{{listcars.id}}"><ion-icon name="heart-outline"></ion-icon></ion-button>
 			</ion-col>
 		</ion-row>
 	</div>

@@ -76,6 +76,10 @@ const routes: Routes = [
     loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
   {
+    path: 'favorites/:id',
+    loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
+  },
+  {
     path: 'help',
     loadChildren: () => import('./help/help.module').then( m => m.HelpPageModule)
   },
@@ -98,6 +102,10 @@ const routes: Routes = [
   {
     path: 'promote/:id',
     loadChildren: () => import('./promote/promote.module').then( m => m.PromotePageModule)
+  },
+  {
+    path: 'favorites-del/:id',
+    loadChildren: () => import('./favorites-del/favorites-del.module').then( m => m.FavoritesDelPageModule)
   },
 ];
 

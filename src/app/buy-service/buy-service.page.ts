@@ -14,7 +14,10 @@ export class BuyServicePage implements OnInit {
   status_detail:any;
   constructor(public api: RestApiService,private storage: Storage,public route: Router) {
     this.api.getdata('buyService/listCoin').subscribe(
-      res=>{this.listcoin = res;},
+      res=>{
+        this.listcoin = res;
+        console.log(this.listcoin);
+      },
       err=>{console.log(err);}
     );
   }

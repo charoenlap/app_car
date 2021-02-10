@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../rest-api.service';
 
 @Component({
   selector: 'app-save',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavePage implements OnInit {
 
-  constructor() { }
+  listcar:any;
+  constructor(public api: RestApiService) {
+    this.api.getdata('cars/getListWishlist').subscribe(
+      res=>{
+        this.listcar = res;
+      }
+    );
+  }
 
   ngOnInit() {
   }

@@ -16,15 +16,40 @@ export class CarDetailPage implements OnInit {
   detail:any;
   tel:any;
   line:any;
+  brand:any;
+  model:any;
+  name:any;
+  submodel:any;
+  year:any;
+  power:any;
+  gear:any;
+  mileage:any;
+  color:any;
+  type:any;
+  username:any;
+  images:any;
   constructor(public api: RestApiService,public route: ActivatedRoute) { 
   	this.car_id = this.route.snapshot.paramMap.get('id');
-  	this.api.getdata('cars/getCarDetail&car_id='+this.car_id).subscribe(res => {
+  	this.api.getdata('cars/getCarDetail&id='+this.car_id).subscribe(res => {
       this.cardetail = res;
+      // console.log(this.cardetail);
       this.price = this.cardetail.price;
       this.image = this.cardetail.image;
       this.detail = this.cardetail.detail;
       this.tel = this.cardetail.tel;
       this.line = this.cardetail.line;
+      this.brand = this.cardetail.brand;
+      this.model = this.cardetail.model;
+      this.name = this.cardetail.name;
+      this.submodel = this.cardetail.submodel;
+      this.year = this.cardetail.year;
+      this.power = this.cardetail.power;
+      this.gear = this.cardetail.gear;
+      this.mileage = this.cardetail.mileage;
+      this.color = this.cardetail.color;
+      this.type = this.cardetail.type;
+      this.username = this.cardetail.username;
+      this.images = this.cardetail.images;
       // loading.dismiss();
       
     }, err => {

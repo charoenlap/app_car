@@ -17,17 +17,29 @@ export class CarAddPage implements OnInit {
   listgear:any;
   caradd:any;
   status_detail:any;
+  brand_id:any;
+  model_id:any;
   constructor(public api:RestApiService) {
     this.api.getdata('cars/getListType').subscribe(res=>{this.listtype = res;});
     this.api.getdata('cars/getListBand').subscribe(res=>{this.listbrand = res;});
-    this.api.getdata('cars/getLlistGeneration').subscribe(res=>{this.listgen = res;});
-    this.api.getdata('cars/getListFace').subscribe(res=>{this.listface = res;});
-    this.api.getdata('cars/getListYear').subscribe(res=>{this.listyear = res;});
+    this.api.getdata('cars/getListYear').subscribe(
+      res=>{
+        this.listyear = res;
+      }
+    );
     this.api.getdata('cars/getListCC').subscribe(res=>{this.listcc = res;});
-    this.api.getdata('cars/getListModel').subscribe(res=>{this.listmodel = res;});
     this.api.getdata('cars/getListGear').subscribe(res=>{this.listgear = res;});
   }
-
+  getGen($event){
+    this.brand_id = $event.target.value;
+    this.api.getdata('cars/getLlistGeneration&brand_id='+this.brand_id).subscribe(res=>{this.listgen = res;});
+  }
+  getFace($event){
+    this.model_id = $event.target.value;
+    this.api.getdata('cars/getListFace&brand_id='+this.brand_id+'&model_id='+this.model_id).subscribe(res=>{this.listface = res;});
+    this.api.getdata('cars/getListModel&brand_id='+this.brand_id+'&model_id='+this.model_id).subscribe(res=>{this.listmodel = res;});
+  }
+        
   ngOnInit() {
   }
   async cardata(type_id:any,brand_id:any,generation_id:any,face_id:any,model_id:any,year_id:any,cc_id:any,gear_id:any,mile:any,color:any,price:any,license:any,detail:any,image:any){
