@@ -16,7 +16,7 @@ export class CarallPage implements OnInit {
     this.storage.get('token').then((data)=>{
       this.token = data;
     });
-    this.api.getdata('cars/getListCarall').subscribe(
+    this.api.getdata('cars/getListCarall&page=1').subscribe(
       res=>{
         this.list = res;
         this.listcar = this.list.cars;

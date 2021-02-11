@@ -13,15 +13,17 @@ export class AnnouncePage implements OnInit {
   constructor(public api: RestApiService,private storage: Storage) {
     this.storage.get('token').then((data)=>{
       this.token = data;
+      this.api.getdata('announce/getListCars&token='+this.token).subscribe(
+        res=>{
+          this.listcar = res;
+          this.listcar = this.listcar.cars;
+        },err=>{
+          console.log(err);
+        }
+      );
     });
 
-    this.api.getdata('announce/getListCars').subscribe(
-      res=>{
-        this.listcar = res;
-      },err=>{
-        console.log(err);
-      }
-    );
+    
   }
   ngOnInit() {
   }
