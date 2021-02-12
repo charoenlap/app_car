@@ -13,7 +13,6 @@ export class NewsPage implements OnInit {
     // this.url = 'api/index.php?route=information/getListNews'; 
     this.api.getdata('information/getListNews').subscribe(res => {
       this.news = res;
-      console.log(this.news);
       // loading.dismiss();
       
     }, err => {

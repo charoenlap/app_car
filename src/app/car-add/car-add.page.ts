@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-car-add',
@@ -19,7 +20,8 @@ export class CarAddPage implements OnInit {
   status_detail:any;
   brand_id:any;
   model_id:any;
-  constructor(public api:RestApiService) {
+  token:any;
+  constructor(public api:RestApiService,private storage:Storage) {
     this.api.getdata('cars/getListType').subscribe(res=>{this.listtype = res;});
     this.api.getdata('cars/getListBand').subscribe(res=>{this.listbrand = res;});
     this.api.getdata('cars/getListYear').subscribe(
@@ -42,17 +44,32 @@ export class CarAddPage implements OnInit {
         
   ngOnInit() {
   }
-  async cardata(type_id:any,brand_id:any,generation_id:any,face_id:any,model_id:any,year_id:any,cc_id:any,gear_id:any,mile:any,color:any,price:any,license:any,detail:any,image:any){
-    this.api.getdata('cars/addCar&type_id='+type_id+'&brand_id='+brand_id+'&generation_id='+generation_id+'&face_id='+face_id+'&model_id='+model_id+'&year_id='+year_id+'&cc_id='+cc_id+'&gear_id='+gear_id+'&mile='+mile+'&color='+color+'&price='+price+'&license='+license+'&detail='+detail+'&image='+image).subscribe(
-      res=>{
-        this.caradd = res;
-        if(this.caradd.result == 'success'){
-          this.status_detail = this.caradd.result;
+  cardata = {}
+  formcar(cardata:any){
+    // console.log(this.cardata);
+    this.storage.get('token').then((data)=>{
+      this.token = data;
+      // console.log(this.token);
+      this.api.getdata('cars/addCar&token='+this.token+'&type_id='+this.cardata.type_id+'&brand_id='+this.cardata.brand_id+'&generation_id='+this.cardata.generation_id+'&face_id='+this.cardata.face_id+'&model_id='+this.cardata.model_id+'&year_id='+this.cardata.year_id+'&cc_id='+this.cardata.cc_id+'&gear_id='+this.cardata.gear_id+'&mile='+this.cardata.mile+'&color='+this.cardata.color+'&price='+this.cardata.price+'&license='+this.cardata.license+'&detail='+this.cardata.detail+'&image='+this.cardata.image).subscribe(
+        res=>{
+          console.log(res);
+        },err=>{
+          console.log(err);
         }
-      },err=>{
-        console.log(err);
-      }
-    );
+      );
+    });
   }
+  // async cardata(type_id:any,brand_id:any,generation_id:any,face_id:any,model_id:any,year_id:any,cc_id:any,gear_id:any,mile:any,color:any,price:any,license:any,detail:any,image:any){
+  //   this.api.getdata('cars/addCar&type_id='+type_id+'&brand_id='+brand_id+'&generation_id='+generation_id+'&face_id='+face_id+'&model_id='+model_id+'&year_id='+year_id+'&cc_id='+cc_id+'&gear_id='+gear_id+'&mile='+mile+'&color='+color+'&price='+price+'&license='+license+'&detail='+detail+'&image='+image).subscribe(
+  //     res=>{
+  //       this.caradd = res;
+  //       if(this.caradd.result == 'success'){
+  //         this.status_detail = this.caradd.result;
+  //       }
+  //     },err=>{
+  //       console.log(err);
+  //     }
+  //   );
+  // }
 
 }

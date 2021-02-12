@@ -2,23 +2,50 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { Storage } from '@ionic/storage';
 import { ActivatedRoute, Router } from '@angular/router';
+
+interface logIndata{
+  username:any,
+  password:any
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
   
   loginDetail:any;
   status_login:any;
-  constructor(public api: RestApiService,private storage: Storage,public route: Router) { 
 
+  public formlogin:logIndata;
+  constructor(public api: RestApiService,private storage: Storage,public route: Router) { 
+    this.formlogin = {
+      username: '',
+      password: ''
+    }
   }
 
   ngOnInit() {
   }
 
-  async login(username:string,password:string) {
+  login(form:any){
+    this.api.getdata('login&username='+form.value.username+'&password='+form.value.password).subscribe(
+      res=>{
+        this.loginDetail = res;
+        if(this.loginDetail.result == "success"){
+          this.status_login = this.loginDetail.result;
+          this.storage.set('token', this.loginDetail.token).then((data)=>{
+            this.route.navigate(['/home']);
+          });
+        }
+      },err=>{
+        console.log(err);
+      }
+    );
+  }
+  /*async login(username:string,password:string) {
 
     // const loading = await this.loadingController.create({
     // // content: 'Loading'
@@ -67,6 +94,6 @@ export class LoginPage implements OnInit {
       // loading.dismiss();
     });
     
-  }
+  }*/
 
 }

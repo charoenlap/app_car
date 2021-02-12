@@ -4,13 +4,23 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light">
-	<form #form="ngForm" (ngSubmit)="login()" >
+	<!-- <form #form="ngForm" (ngSubmit)="login()" >
 		<ion-card class="mt-5">
 		  <ion-card-content>
 		   	<ion-input name="username" class="input" placeholder="Username"></ion-input>
 		    <ion-input name="password" class="input" placeholder="Password"></ion-input>
 		   	<div>{{ status_login }}</div>
 		    <ion-button color="theme" type="submit"  [disabled]="form.invalid">Login</ion-button>
+		  </ion-card-content>
+		</ion-card>
+	</form> -->
+	<form #form="ngForm" (ngSubmit)="login(form)" >
+		<ion-card class="mt-5">
+		  <ion-card-content>
+		   	<ion-input [(ngModel)]="login.username" name="username" class="input" placeholder="Username"></ion-input>
+		    <ion-input [(ngModel)]="login.password" name="password" class="input" placeholder="Password"></ion-input>
+		   	<div>{{ status_login }}</div>
+		    <ion-button color="theme" type="submit" expand="full">Login</ion-button>
 		  </ion-card-content>
 		</ion-card>
 	</form>
