@@ -107,6 +107,10 @@ const routes: Routes = [
     path: 'favorites-del/:id',
     loadChildren: () => import('./favorites-del/favorites-del.module').then( m => m.FavoritesDelPageModule)
   },
+  {
+    path: 'favorites-add/:id',
+    loadChildren: () => import('./favorites-add/favorites-add.module').then( m => m.FavoritesAddPageModule)
+  },
 ];
 
 @NgModule({

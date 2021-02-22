@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-special-service',
@@ -8,11 +9,17 @@ import { RestApiService } from '../rest-api.service';
 })
 export class SpecialServicePage implements OnInit {
   listService:any;
-  constructor(public api: RestApiService) {
-    this.api.getdata('profile/listCoinHistory').subscribe(
-      res=>{this.listService = res;},
-      err=>{console.log(err);}
-    );
+  token:any;
+  constructor(public api: RestApiService,private storage:Storage) {
+    this.storage.get('token').then((data)=>{
+      this.token = data;
+      this.api.getdata('profile/listCoinHistory&token='+this.token).subscribe(
+        res=>{
+          this.listService = res;
+        },
+        err=>{console.log(err);}
+      );
+    })
   }
 
   ngOnInit() {

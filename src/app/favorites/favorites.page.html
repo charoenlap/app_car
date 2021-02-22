@@ -4,6 +4,14 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="light">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content
+		  pullingIcon="chevron-down-circle-outline"
+		  pullingText="Pull to refresh"
+		  refreshingSpinner="circles"
+		  refreshingText="Refreshing...">
+		</ion-refresher-content>
+	</ion-refresher>
 	<ion-grid>
 		<ion-row>
 			<ion-col size="6" *ngFor="let lists of listcar">
@@ -11,9 +19,10 @@
 					<img src="{{lists.image}}">
 					<div class="card-body">
 						<ion-text color="theme">
-							<p class="my-0"><strong>{{lists.name}}</strong></p>
+							<small class="my-0"><strong>{{lists.title}}</strong></small>
 						</ion-text>
-						<p class="my-0">{{lists.price}} บาท</p>
+						<br>
+						<small class="my-0">{{lists.price}} บาท</small>
 					</div>
 					<ion-button routerLink="/car-detail/{{lists.id}}" expand="full" color="tertiary" size="small">ข้อมูลรถ</ion-button>
 					<ion-button routerLink="/favorites-del/{{lists.id}}" expand="full" color="danger" size="small"><ion-icon name="trash-outline"></ion-icon></ion-button>

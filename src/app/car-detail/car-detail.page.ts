@@ -44,9 +44,9 @@ export class CarDetailPage implements OnInit {
       this.submodel = this.cardetail.submodel;
       this.year = this.cardetail.year;
       this.power = this.cardetail.power;
-      this.gear = this.cardetail.gear;
+      this.gear = this.cardetail.gear.text;
       this.mileage = this.cardetail.mileage;
-      this.color = this.cardetail.color;
+      this.color = this.cardetail.color.text;
       this.type = this.cardetail.type;
       this.username = this.cardetail.username;
       this.images = this.cardetail.images;

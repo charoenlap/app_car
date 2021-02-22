@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.page.html',
@@ -8,25 +10,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FavoritesPage implements OnInit {
   listcar:any;
+  token:any;
   car_id:any;
-  addwishlist:any;
-  constructor(public api: RestApiService, public router: ActivatedRoute) {
-    this.api.getdata('cars/getListWishlist').subscribe(
-      res=>{
-        this.listcar = res;
-      },err=>{
-        console.log(err);
-      }
-    );
-    this.car_id = this.router.snapshot.paramMap.get('id');
-    this.api.getdata('cars/addWishlist&car_id='+this.car_id).subscribe(
-      res=>{
-        this.addwishlist = res;
-        console.log(this.addwishlist);
-      },err=>{
-        console.log(err);
-      }
-    );
+  constructor(public api: RestApiService, public router: ActivatedRoute,private storage: Storage) {
+    this.storage.get('token').then((data)=>{
+      this.token = data;
+      this.api.getdata('cars/getListWishlist&token='+this.token).subscribe(
+        res=>{
+          this.listcar = res;
+          // console.log(this.listcar);
+        },err=>{
+          console.log(err);
+        }
+      );
+    });
+  }
+  async doRefresh(event) {
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete(
+        this.storage.get('token').then((data)=>{
+          this.token = data;
+          this.api.getdata('cars/getListWishlist&token='+this.token).subscribe(
+            res=>{
+              this.listcar = res;
+            }
+          );
+        })
+      );
+    }, 2000);
   }
 
   ngOnInit() {

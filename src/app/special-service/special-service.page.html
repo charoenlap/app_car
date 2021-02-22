@@ -15,20 +15,16 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th>วัน/เดือน/ปี</th>
+								<th>วัน</th>
 								<th>จำนวน</th>
-								<th>สถานะ</th>
+								<th>ราคา</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr *ngFor="let lists of listService">
-								<td>{{lists.date}}</td>
-								<td>{{lists.text}} Unit</td>
-								<td>
-									<ion-text color="success">
-										{{lists.status}}
-									</ion-text>
-								</td>
+								<td>{{lists.date_create}}</td>
+								<td>{{lists.coin}}</td>
+								<td>{{lists.price}}</td>
 							</tr>
 						</tbody>
 					</table>

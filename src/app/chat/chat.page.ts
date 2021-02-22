@@ -11,12 +11,17 @@ export class ChatPage implements OnInit {
   facebook:any;
   mail:any;
   line:any;
+  image:any;
+  address:any;
   constructor(public api: RestApiService) {
-    this.api.getdata('information/contact').subscribe(res => {
+    this.api.getdata('information/getContact').subscribe(res => {
       this.listcontact = res;
+      // console.log(this.listcontact);
       this.facebook = this.listcontact.facebook;
       this.mail = this.listcontact.mail;
-      this.line = this.line;
+      this.line = this.listcontact.line;
+      this.image = this.listcontact.image;
+      this.address = this.listcontact.address;
     }, err => {
       console.log(err);
     });
