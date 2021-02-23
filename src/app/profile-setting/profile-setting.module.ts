@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfileSettingPageRoutingModule } from './profile-setting-routing.module';
 
 import { ProfileSettingPage } from './profile-setting.page';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';	
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { ProfileSettingPage } from './profile-setting.page';
     FormsModule,
     IonicModule,
     ProfileSettingPageRoutingModule
+  ],
+  providers: [
+  	ImagePicker
   ],
   declarations: [ProfileSettingPage]
 })

@@ -16,7 +16,7 @@ export class FavoritesDelPage implements OnInit {
   constructor(public api:RestApiService,public route:Router,public router:ActivatedRoute,private storage:Storage) {
     this.storage.get('token').then((data)=>{
       this.token = data;
-      console.log(this.token);
+      // console.log(this.token);
       this.car_id = this.router.snapshot.paramMap.get('id');
       this.api.getdata('cars/delWishlist&token='+this.token+'&id='+this.car_id).subscribe(
         res=>{
