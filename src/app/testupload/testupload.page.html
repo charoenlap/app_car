@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>testupload</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<form #form="ngForm" (ngSubmit)="uploadProfileImage(obj)">
+	<ion-item>
+      <!-- <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label> -->
+      <!-- <ion-input type="file" accept="image/*" (change)="changeListener($event)"></ion-input> -->
+      <input type="file" ng-file-model="obj.testFile" />
+    </ion-item>
+    <ion-button color="theme" type="sunmit" expand="full">บันทึก</ion-button>
+	</form>
+</ion-content>

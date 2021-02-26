@@ -3,5 +3,11 @@
   "integrations": {
     "cordova": {}
   },
+  "proxies":[
+  	{
+  		"path":"/testproxy",
+  		"proxyUrl":"https://www.kai2car.com/api/index.php?route=test"
+  	}
+  ],
   "type": "angular"
 }

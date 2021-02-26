@@ -42,4 +42,27 @@ export class RestApiService {
 	      map(this.extractData),catchError(this.handleError)
 	    );
 	}
+	putdata(url_string: string,file:File): Observable<any> {
+	    // const url = `${apiUrl}${url_string}`;
+	    const url = "/testproxy";
+	 //    const allowedOrigins = [
+		//   'capacitor://localhost',
+		//   'ionic://localhost',
+		//   'http://localhost',
+		//   'http://localhost:8080',
+		//   'http://localhost:8100'
+		// ];
+
+	 //    const corsOptions = {
+		//   origin: (origin, callback) => {
+		//     if (allowedOrigins.includes(origin) || !origin) {
+		//       callback(null, true);
+		//     } else {
+		//       callback(new Error('Origin not allowed by CORS'));
+		//     }
+		//   }
+		// }
+	    // this.http.options('*', cors(corsOptions));
+		return this.http.post(url,file,{headers:{'Access-Control-Allow-Origin':"*"}});
+	}
 }

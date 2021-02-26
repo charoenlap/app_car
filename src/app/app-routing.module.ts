@@ -52,6 +52,10 @@ const routes: Routes = [
     loadChildren: () => import('./carall/carall.module').then( m => m.CarallPageModule)
   },
   {
+    path: 'carall/:id',
+    loadChildren: () => import('./carall/carall.module').then( m => m.CarallPageModule)
+  },
+  {
     path: 'searchcar',
     loadChildren: () => import('./searchcar/searchcar.module').then( m => m.SearchcarPageModule)
   },
@@ -110,6 +114,18 @@ const routes: Routes = [
   {
     path: 'favorites-add/:id',
     loadChildren: () => import('./favorites-add/favorites-add.module').then( m => m.FavoritesAddPageModule)
+  },
+  {
+    path: 'testupload',
+    loadChildren: () => import('./testupload/testupload.module').then( m => m.TestuploadPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'register-company',
+    loadChildren: () => import('./register-company/register-company.module').then( m => m.RegisterCompanyPageModule)
   },
 ];
 
