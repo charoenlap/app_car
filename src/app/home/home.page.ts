@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 	banner:any;
 	brand:any;
   	constructor(public api: RestApiService) {
@@ -16,4 +16,7 @@ export class HomePage {
 		});
 		this.api.getdata('brand/listBrand').subscribe(res=>{this.brand = res;},err=>{console.log(err);});
 	}
+
+	ngOnInit() {
+  	}
 }

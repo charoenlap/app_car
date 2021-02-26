@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar color="theme">
     <ion-title>ค้นหารถทั้งหมด</ion-title>
-    <a href="car-add" slot="end" class="mr-1"><ion-icon name="add-circle-outline" size="large" color="light"></ion-icon></a>
+    <a routerLink="/car-add" slot="end" class="mr-1"><ion-icon name="add-circle-outline" size="large" color="light"></ion-icon></a>
   </ion-toolbar>
 </ion-header>
 <ion-content color="light">
-	<ion-button expand="full" color="theme" href="searchcar"><ion-icon name="search-outline"></ion-icon> ค้นหารถตามประเภท</ion-button>
+	<ion-button expand="full" color="theme" routerLink="/searchcar"><ion-icon name="search-outline"></ion-icon> ค้นหารถตามประเภท</ion-button>
 
 	<div class="card mb-1" *ngFor="let listcars of listcar">
 		<ion-row>

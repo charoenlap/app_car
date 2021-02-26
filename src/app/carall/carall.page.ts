@@ -37,8 +37,5 @@ export class CarallPage implements OnInit {
   }
   ngOnInit() {
   }
-  nextpage(){
-
-  }
 
 }
