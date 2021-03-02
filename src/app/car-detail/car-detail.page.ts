@@ -32,7 +32,6 @@ export class CarDetailPage implements OnInit {
   	this.car_id = this.route.snapshot.paramMap.get('id');
   	this.api.getdata('cars/getCarDetail&id='+this.car_id).subscribe(res => {
       this.cardetail = res;
-      // console.log(this.cardetail);
       this.price = this.cardetail.price;
       this.image = this.cardetail.image;
       this.detail = this.cardetail.detail;

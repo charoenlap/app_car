@@ -96,6 +96,10 @@ const routes: Routes = [
     loadChildren: () => import('./save/save.module').then( m => m.SavePageModule)
   },
   {
+    path: 'save/:id',
+    loadChildren: () => import('./save/save.module').then( m => m.SavePageModule)
+  },
+  {
     path: 'special-service',
     loadChildren: () => import('./special-service/special-service.module').then( m => m.SpecialServicePageModule)
   },
