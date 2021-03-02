@@ -1,11 +1,12 @@
 <ion-header>
   <ion-toolbar color="theme">
-    <ion-title>ประกาศของฉัน</ion-title>
+    <ion-title>รถของฉัน</ion-title>
     <a routerLink="/car-add" slot="end" class="mr-1"><ion-icon name="add-circle-outline" size="large" color="light"></ion-icon></a>
   </ion-toolbar>
 </ion-header>
 <ion-content color="light">
-	<ion-searchbar placeholder="ค้นหาประกาศของคุณในออนไลน์"></ion-searchbar>
+	<!-- <ion-searchbar placeholder="ค้นหาประกาศของคุณในออนไลน์"></ion-searchbar> -->
+	<ion-searchbar placeholder="ค้นหา"></ion-searchbar>
 	<ion-grid>
 		<ion-row>
 			<ion-col size="6" *ngFor="let lists of listcar">

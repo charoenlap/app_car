@@ -5,9 +5,18 @@
 </ion-header>
 
 <ion-content color="light">
+	<div class="card images-car">
+		<ion-slides>
+	        <ion-slide *ngFor="let images of images">
+	          <div class="slide">
+				<img src="{{images}}" alt="">
+	          </div>
+	        </ion-slide>
+	  	</ion-slides>
+	</div>
 	<div class="card">
 		<ion-grid>
-			<ion-row>
+			<!-- <ion-row>
 				<ion-col size="12">
 					<ion-slides>
 				        <ion-slide *ngFor="let images of images">
@@ -17,95 +26,172 @@
 				        </ion-slide>
 			      	</ion-slides>
 				</ion-col>
-			</ion-row>
+			</ion-row> -->
+			<!-- <ion-row>
+				<ion-col size="12">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>ยี่ห้อรถยนต์</td>
+								<td>{{brand}}</td>
+							</tr>
+							<tr>
+								<td>รุ่นรถยนต์</td>
+								<td>{{model}}</td>
+							</tr>
+							<tr>
+								<td>โฉมรถยนต์</td>
+								<td>{{name}}</td>
+							</tr>
+							<tr>
+								<td>รายละเอียดรุ่น</td>
+								<td>{{submodel}}</td>
+							</tr>
+							<tr>
+								<td>ปี</td>
+								<td>{{year}}</td>
+							</tr>
+							<tr>
+								<td>ขนาดเครื่องยนต์</td>
+								<td>{{power}}</td>
+							</tr>
+							<tr>
+								<td>ระบบเกียร์</td>
+								<td>{{gear}}</td>
+							</tr>
+							<tr>
+								<td>เลขไมล์</td>
+								<td>{{mileage}}</td>
+							</tr>
+							<tr>
+								<td>สี</td>
+								<td>{{color}}</td>
+							</tr>
+							<tr>
+								<td>ประเภทรถ</td>
+								<td>{{type}}</td>
+							</tr>
+							<tr>
+								<td>รายละเอียดเพิ่มเติม</td>
+								<td>{{detail}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</ion-col>
+			</ion-row> -->
 			<ion-row>
 				<ion-col size="12">
 					<ion-text color="theme">
-						<h6>ราคา {{price}} บาท</h6>
+						<h3>ราคา {{price}} บาท</h3>
 					</ion-text>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					ยี่ห้อรถยนต์
+					<ion-text color="theme">
+						ยี่ห้อรถยนต์
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{brand}}</p>
+					<p class="ion-no-margin">{{brand}}</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					รุ่นรถยนต์
+					<ion-text color="theme"> 
+						รุ่นรถยนต์
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{model}}</p>
+					<p class="ion-no-margin">{{model}}</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					โฉมรถยนต์
+					<ion-text color="theme">
+						โฉมรถยนต์
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{name}}</p>
+					<p class="ion-no-margin">{{name}}</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					รายละเอียดรุ่น
+					<ion-text color="theme">
+						รายละเอียดรุ่น
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{submodel}}</p>
+					<p class="ion-no-margin">{{submodel}}</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					ปี
+					<ion-text color="theme">
+						ปี
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{year}}</p>
+					<p class="ion-no-margin">{{year}}</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					ขนาดเครื่องยนต์
+					<ion-text color="theme">
+						ขนาดเครื่องยนต์
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{power}} cc</p>
+					<p class="ion-no-margin">{{power}} cc</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					ระบบเกียร์
+					<ion-text color="theme">
+						ระบบเกียร์
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{gear}}</p> 
+					<p class="ion-no-margin">{{gear}}</p> 
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					เลขไมล์
+					<ion-text color="theme">
+						เลขไมล์
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{mileage}} กม.</p>
+					<p class="ion-no-margin">{{mileage}} กม.</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					สี
+					<ion-text color="theme">
+						สี
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{color}}</p>
+					<p class="ion-no-margin">{{color}}</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
 				<ion-col size="6">
-					ประเภทรถ
+					<ion-text color="theme">
+						ประเภทรถ
+					</ion-text>
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">{{type}}</p>
+					<p class="ion-no-margin">{{type}}</p>
 				</ion-col>
 			</ion-row>
 			<ion-row>
+				<ion-col size="12">
+					<ion-text color="theme">
+						รายละเอียดเพิ่มเติม
+					</ion-text>
+				</ion-col>
 				<ion-col size="12">
 					{{detail}}
 				</ion-col>
@@ -115,7 +201,7 @@
 					อัพเดทวันที่
 				</ion-col>
 				<ion-col size="6">
-					<p class="ion-no-margin text-small">20 มกราคม 2564</p>
+					<p class="ion-no-margin">20 มกราคม 2564</p>
 				</ion-col>
 			</ion-row> -->
 		</ion-grid>

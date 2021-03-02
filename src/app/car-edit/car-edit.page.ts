@@ -80,9 +80,21 @@ export class CarEditPage implements OnInit {
         this.sub_model = this.cardata_detail.Car_submodel_id;
         this.car_body = this.cardata_detail.Car_body_id;
 
-        this.api.getdata('cars/getListType').subscribe(res=>{this.listtype = res;});
-        this.api.getdata('cars/getListBand').subscribe(res=>{this.listbrand = res;});
-        this.api.getdata('cars/getListYear').subscribe(res=>{this.listyear = res;});
+        this.api.getdata('cars/getListType').subscribe(
+          res=>{ 
+            return this.listtype = res;
+          }
+        )
+        this.api.getdata('cars/getListBand').subscribe(
+          res=>{
+            return this.listbrand = res;
+          }
+        )
+        this.api.getdata('cars/getListYear').subscribe(
+          res=>{
+            return this.listyear = res;
+          }
+        )
         this.api.getdata('cars/getListCC').subscribe(res=>{this.listcc = res;});
         this.api.getdata('cars/getListGear').subscribe(res=>{this.listgear = res;});
         this.api.getdata('cars/getLlistGeneration&brand_id='+this.car_brand).subscribe(res=>{this.listgen = res;});

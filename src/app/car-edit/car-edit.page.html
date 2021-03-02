@@ -10,14 +10,14 @@
 			<ion-row>
 				<ion-col size="8">
 					<ion-text color="theme">
-						<h6><strong>ข้อมูลรถยนต์</strong></h6>
+						<h3><strong>ข้อมูลรถยนต์</strong></h3>
 					</ion-text>
 					<ion-text color="success">
 						<h3>{{status_detail}}</h3>
 					</ion-text>
 				</ion-col>
 				<ion-col size="4">
-					<ion-button color="secondary" expand="full" routerLink="/promote/{{car_id}}">โปรโมท</ion-button>
+					<ion-button color="secondary" expand="block" routerLink="/promote/{{car_id}}">โปรโมท</ion-button>
 				</ion-col>
 			</ion-row>
 			<form #form="ngForm" (ngSubmit)="editForm(form)" >
@@ -98,7 +98,7 @@
 					<ion-input type="file" accept="image/*" name="image" [(ngModel)]="todo.image"></ion-input>
 				</ion-col>
 				<ion-col size="12">
-					<ion-button color="theme" type="submit" expand="full">บันทึกข้อมูล</ion-button>
+					<ion-button color="theme" type="submit" expand="block">บันทึกข้อมูล</ion-button>
 				</ion-col>
 			</ion-row>
 			</form>

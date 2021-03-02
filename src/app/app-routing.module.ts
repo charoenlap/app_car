@@ -131,6 +131,10 @@ const routes: Routes = [
     path: 'register-company',
     loadChildren: () => import('./register-company/register-company.module').then( m => m.RegisterCompanyPageModule)
   },
+  {
+    path: 'logout',
+    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },
 ];
 
 @NgModule({
