@@ -47,8 +47,12 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  // {
+  //   path: 'carall',
+  //   loadChildren: () => import('./carall/carall.module').then( m => m.CarallPageModule)
+  // },
   {
-    path: 'carall',
+    path: 'carall/:id/:brand',
     loadChildren: () => import('./carall/carall.module').then( m => m.CarallPageModule)
   },
   {

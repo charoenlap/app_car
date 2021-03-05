@@ -39,7 +39,7 @@
 			
 			<ion-row>
 				<ion-col size="4" *ngFor="let brands of brand">
-					<div class="logo" routerLink="/carall/1">
+					<div class="logo" routerLink="/carall/1/{{brands.id}}">
 						<img src="{{brands.image}}">
 					</div>
 				</ion-col>

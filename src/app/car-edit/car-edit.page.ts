@@ -64,35 +64,49 @@ export class CarEditPage implements OnInit {
     this.api.getdata('cars/getCarDetail&id='+this.car_id).subscribe(
       res=>{
         // console.log(res);
-        this.cardata_detail = res;
-        this.car_mile = this.cardata_detail.mileage;
-        this.car_price = this.cardata_detail.price;
-        this.car_label = this.cardata_detail.label;
-        this.car_color = this.cardata_detail.color;
-        this.car_detail = this.cardata_detail.detail;
-        this.car_images = this.cardata_detail.images;
-        this.car_brand = this.cardata_detail.Car_band_id;
-        this.car_type_id = this.cardata_detail.Car_type_id;
-        this.car_cc = this.cardata_detail.power;
-        this.car_year = this.cardata_detail.year;
-        this.car_gear = this.cardata_detail.gear.id;
-        this.car_model = this.cardata_detail.Car_model_id;
-        this.sub_model = this.cardata_detail.Car_submodel_id;
-        this.car_body = this.cardata_detail.Car_body_id;
+        // this.cardata_detail = res;
+        // this.car_mile = this.cardata_detail.mileage;
+        // this.car_price = this.cardata_detail.price;
+        // this.car_label = this.cardata_detail.label;
+        // this.car_color = this.cardata_detail.color;
+        // this.car_detail = this.cardata_detail.detail;
+        // this.car_images = this.cardata_detail.images;
+        // this.car_brand = this.cardata_detail.Car_band_id;
+        // this.car_type_id = this.cardata_detail.Car_type_id;
+        // this.car_cc = this.cardata_detail.power;
+        // this.car_year = this.cardata_detail.year;
+        // this.car_gear = this.cardata_detail.gear.id;
+        // this.car_model = this.cardata_detail.Car_model_id;
+        // this.sub_model = this.cardata_detail.Car_submodel_id;
+        // this.car_body = this.cardata_detail.Car_body_id;
+        this.car_mile = res.mileage;
+        this.car_price = res.price;
+        this.car_label = res.label;
+        this.car_color = res.color;
+        this.car_detail = res.detail;
+        this.car_images = res.images;
+        this.car_brand = res.Car_band_id;
+        this.car_type_id = res.Car_type_id;
+        this.car_cc = res.power;
+        this.car_year = res.year;
+        this.car_gear = res.gear.id;
+        this.car_model = res.Car_model_id;
+        this.sub_model = res.Car_submodel_id;
+        this.car_body = res.Car_body_id;
 
         this.api.getdata('cars/getListType').subscribe(
           res=>{ 
-            return this.listtype = res;
+            this.listtype = res;
           }
         )
         this.api.getdata('cars/getListBand').subscribe(
           res=>{
-            return this.listbrand = res;
+            this.listbrand = res;
           }
         )
         this.api.getdata('cars/getListYear').subscribe(
           res=>{
-            return this.listyear = res;
+            this.listyear = res;
           }
         )
         this.api.getdata('cars/getListCC').subscribe(res=>{this.listcc = res;});

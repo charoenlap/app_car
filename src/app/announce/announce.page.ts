@@ -15,13 +15,23 @@ export class AnnouncePage implements OnInit {
       this.token = data;
       this.api.getdata('announce/getListCars&token='+this.token).subscribe(
         res=>{
-          this.listcar = res;
-          this.listcar = this.listcar.cars;
+          return this.listcar = res.cars;
         },err=>{
           console.log(err);
         }
-      );
-    });
+      )
+    })
+    // this.storage.get('token').then((data)=>{
+    //   this.token = data;
+    //   this.api.getdata('announce/getListCars&token='+this.token).subscribe(
+    //     res=>{
+    //       this.listcar = res;
+    //       this.listcar = this.listcar.cars;
+    //     },err=>{
+    //       console.log(err);
+    //     }
+    //   );
+    // });
 
     
   }

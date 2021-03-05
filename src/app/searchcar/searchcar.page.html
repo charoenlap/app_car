@@ -80,7 +80,7 @@
 		<ion-row>
 			<ion-col size="4" *ngFor="let list of listbrands">
 				<div class="logo-car">
-					<img src="{{list.image}}"><br>
+					<img src="{{list.image}}" routerLink="/carall/1/{{list.id}}"><br>
 					<small>{{list.name}}</small>
 				</div>
 			</ion-col>
