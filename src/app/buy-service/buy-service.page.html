@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content color="light">
-	<form #form="ngForm" (ngSubmit)="buycoin(form)" >
+	<form #Buyform="ngForm" (ngSubmit)="buycoin(Buyform)" >
 	<div class="card">
 		<ion-list>
 		  <ion-radio-group value="1" [(ngModel)]="coin.idcoin" name="idcoin">

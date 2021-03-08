@@ -83,11 +83,11 @@ export class CarAddPage implements OnInit {
     this.api.getdata('cars/getListFace&brand_id='+this.brand_id+'&model_id='+this.model_id).subscribe(
       res=>{
         this.listface = res;
-        this.api.getdata('cars/getListModel&brand_id='+this.brand_id+'&model_id='+this.model_id).subscribe(
-          res=>{
-            this.listmodel = res;
-          }
-        );
+      }
+    );
+    this.api.getdata('cars/getListModel&brand_id='+this.brand_id+'&model_id='+this.model_id).subscribe(
+      res=>{
+        this.listmodel = res;
       }
     );
   }
