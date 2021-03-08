@@ -52,7 +52,7 @@ const routes: Routes = [
   //   loadChildren: () => import('./carall/carall.module').then( m => m.CarallPageModule)
   // },
   {
-    path: 'carall/:id/:brand',
+    path: 'carall/:id/:brand/:type',
     loadChildren: () => import('./carall/carall.module').then( m => m.CarallPageModule)
   },
   {

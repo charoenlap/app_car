@@ -14,11 +14,11 @@
 		  </ion-card-content>
 		</ion-card>
 	</form> -->
-	<form #form="ngForm" (ngSubmit)="login(form)" >
+	<form #logInform="ngForm" (ngSubmit)="login(logInform)" >
 		<ion-card class="mt-5">
 		  <ion-card-content>
-		   	<ion-input [(ngModel)]="login.username" name="username" class="input" placeholder="Username"></ion-input>
-		    <ion-input [(ngModel)]="login.password" name="password" class="input" placeholder="Password"></ion-input>
+		   	<ion-input [(ngModel)]="loginuser.username" name="username" class="input" placeholder="Username"></ion-input>
+		    <ion-input [(ngModel)]="loginuser.password" name="password" class="input" placeholder="Password"></ion-input>
 		   	<div>{{ status_login }}</div>
 		    <ion-button color="theme" type="submit" expand="block" class="btn-login">Login</ion-button>
 		  </ion-card-content>

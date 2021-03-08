@@ -3,10 +3,6 @@ import { RestApiService } from '../rest-api.service';
 import { Storage } from '@ionic/storage';
 import { ActivatedRoute, Router } from '@angular/router';
 
-interface logIndata{
-  username:any,
-  password:any
-}
 
 @Component({
   selector: 'app-login',
@@ -18,20 +14,18 @@ export class LoginPage implements OnInit {
   
   loginDetail:any;
   status_login:any;
-
-  public formlogin:logIndata;
+  loginuser: Loginuser;
   constructor(public api: RestApiService,private storage: Storage,public route: Router) { 
-    this.formlogin = {
-      username: '',
-      password: ''
-    }
+    
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.loginuser = new Loginuser();
   }
 
-  login(form:any){
-    this.api.getdata('login&username='+form.value.username+'&password='+form.value.password).subscribe(
+  login(){
+    // console.log(this.loginuser); 
+    this.api.getdata('login&username='+this.loginuser.username+'&password='+this.loginuser.password).subscribe(
       res=>{
         this.loginDetail = res;
         if(this.loginDetail.result == "success"){
@@ -96,4 +90,8 @@ export class LoginPage implements OnInit {
     
   }*/
 
+}
+class Loginuser {
+  username:any;
+  password:any;
 }

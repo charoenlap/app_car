@@ -17,17 +17,10 @@ export class ProfileSettingPage implements OnInit {
   datauser:any;
   dataUserEdit:any;
   status_update:any;
-  profile_photo:any;
-  type:any;
-  name:any;
-  surname:any;
-  id_card:any;
-  phone:any;
-  phone1:any;
-  line:any;
 
 
-  profile = {};
+
+  profile: ProfileEdit;
   // profile:dataUserDetail;
 
   constructor(public api:RestApiService,private storage: Storage,public route:Router,private imagePicker: ImagePicker) {
@@ -35,18 +28,25 @@ export class ProfileSettingPage implements OnInit {
       this.token = data;
       this.api.getdata('profile/getProfile&token='+this.token).subscribe(
         res=>{
-          // console.log(res);
           this.datauser = res;
-          this.profile = {
-            profile_photo:this.datauser.Profile_photo,
-            type:this.datauser.Type,
-            name:this.datauser.Name,
-            surname:this.datauser.Surname,
-            id_card:this.datauser.Id_card,
-            phone:this.datauser.Phone,
-            phone1:this.datauser.Phone1,
-            line:this.datauser.Line
-          }
+          this.profile.profile_photo = this.datauser.Profile_photo;
+          this.profile.type = this.datauser.Type;
+          this.profile.name = this.datauser.Name;
+          this.profile.surname = this.datauser.Surname;
+          this.profile.id_card = this.datauser.Id_card;
+          this.profile.phone = this.datauser.Phone;
+          this.profile.phone1 = this.datauser.Phone1;
+          this.profile.line = this.datauser.Line;
+          // this.profile = {
+          //   profile_photo:this.datauser.Profile_photo,
+          //   type:this.datauser.Type,
+          //   name:this.datauser.Name,
+          //   surname:this.datauser.Surname,
+          //   id_card:this.datauser.Id_card,
+          //   phone:this.datauser.Phone,
+          //   phone1:this.datauser.Phone1,
+          //   line:this.datauser.Line
+          // }
         },err=>{
           console.log(err);
         }
@@ -54,13 +54,14 @@ export class ProfileSettingPage implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.profile = new ProfileEdit();
   }
 
-  profileEdit(form:any){
+  profileEdit(){
     this.storage.get('token').then((data)=>{
       this.token = data;
-      this.api.getdata('profile/editProfile&token='+this.token+'&profile_photo='+form.value.profile_photo+'&name='+form.value.name+'&surname='+form.value.surname+'&id_card='+form.value.id_card+'&phone='+form.value.phone+'&phone1='+form.value.phone1+'&line='+form.value.line).subscribe(
+      this.api.getdata('profile/editProfile&token='+this.token+'&profile_photo='+this.profile.profile_photo+'&name='+this.profile.name+'&surname='+this.profile.surname+'&id_card='+this.profile.id_card+'&phone='+this.profile.phone+'&phone1='+this.profile.phone1+'&line='+this.profile.line).subscribe(
         res=>{
           this.status_update = res;
           if(this.status_update.result == "success"){
@@ -72,32 +73,14 @@ export class ProfileSettingPage implements OnInit {
       )
     })
   }
-  // profileEdit(form:any){
-  //   this.storage.get('token').then((data)=>{
-  //     this.token = data;
-  //     this.api.getdata('profile/getProfile&token='+this.token).subscribe(
-  //       res=>{
-  //         this.dataUserEdit = res;
-  //         this.imagePicker.getPictures(form.value.profile_photo).then((results) => {
-  //           for (var i = 0; i < results.length; i++) {
-  //               console.log('Image URI: ' + results[i]);
-  //           }
-  //         }, (err) => {
-  //           console.log(err);
-  //         });
-  //         // this.api.getdata('profile/editProfile&token='+this.token+'&name='+form.value.name+'&surname='+form.value.surname+'&middle_name='+this.dataUserEdit.Middle_name+'&profile_photo='+form.value.Profile_photo+'&id_card='+form.value.id_card+'&id_card_photo='+this.dataUserEdit.Id_card_photo+'&name_card_photo='+this.dataUserEdit.Name_card_photo+'&sex='+this.dataUserEdit.Sex+'&birth_date='+this.dataUserEdit.Birth_date+'&company='+this.dataUserEdit.Company+'&company_description='+this.dataUserEdit.Company_description+'&company_phone='+this.dataUserEdit.Company_phone+'&company_photo='+this.dataUserEdit.Company_photo+'&company_image_map='+this.dataUserEdit.Company_image_map+'&company_google_map='+this.dataUserEdit.Company_google_map+'&address='+this.dataUserEdit.Address+'&state='+this.dataUserEdit.State+'&country='+this.dataUserEdit.Country+'&post_code='+this.dataUserEdit.Post_code+'&phone='+form.value.phone+'&phone1='+form.value.phone1+'&line='+form.value.line+'&fax='+this.dataUserEdit.Fax+'&mobile='+this.dataUserEdit.Mobile+'&email='+this.dataUserEdit.Email+'&email1='+this.dataUserEdit.Email1+'&website='+this.dataUserEdit.Website).subscribe(
-  //         // this.api.getdata('profile/editProfile&token='+this.token+'&profile_photo='+form.value.profile_photo+'&name='+form.value.name+'&surname='+form.value.surname+'&id_card='+form.value.id_card+'&phone='+form.value.phone+'&phone1='+form.value.phone1+'&line='+form.value.line).subscribe(
-  //         //   res=>{
-  //         //     this.status_update = res;
-  //         //     if(this.status_update.result == "success"){
-  //         //       this.route.navigate(['/profile']);
-  //         //     }
-  //         //   },err=>{
-  //         //     console.log(err);
-  //         //   }
-  //         // );
-  //       }
-  //     )
-  //   });
-  // }
+ }
+ class ProfileEdit {
+   profile_photo:any;
+   type:any;
+   name:any;
+   surname:any;
+   id_card:any;
+   phone:any;
+   phone1:any;
+   line:any;
  }
